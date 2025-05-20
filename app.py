@@ -47,7 +47,7 @@ def create_point_cloud_figure(radius):
     return fig
 
 def create_persistence_diagram_figure(radius):
-    birth = np.array([0.1, 0.3, 0.5])
+    birth = np.array([0.0, 0.3, 0.5])
     death = birth + 0.4 + 0.2 * np.sin(radius * 10)
 
     mask = death > radius
