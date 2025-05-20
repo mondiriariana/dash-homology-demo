@@ -32,8 +32,7 @@ def create_point_cloud_figure(radius):
     layout = go.Layout(
         title=dict(
             text=f'Point Cloud with Radius {radius:.2f}',
-            x=0.85,        # Move title to right side
-            xanchor='left' # Align the start of the title at x=0.85
+            xanchor='left' 
         ),
         xaxis=dict(scaleanchor='y', scaleratio=1, range=[-2, 2]),
         yaxis=dict(range=[-2, 2]),
