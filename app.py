@@ -87,7 +87,7 @@ app.layout = html.Div([
         min=0,
         max=0.8,
         step=0.02,
-        value=0.1,
+        value=0,
         marks={i/10: f'{i/10:.1f}' for i in range(0, 9)},
         tooltip={"placement": "bottom", "always_visible": True},
     ),
