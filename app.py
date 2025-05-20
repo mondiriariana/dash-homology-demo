@@ -18,7 +18,6 @@ def create_point_cloud_figure(radius):
     points_trace = go.Scatter(x=x, y=y, mode='markers',
                               marker=dict(size=8, color='blue'))
 
-
     circles = []
     circle_resolution = 50
     for (px, py) in zip(x, y):
@@ -31,13 +30,17 @@ def create_point_cloud_figure(radius):
                                   showlegend=False, hoverinfo='skip'))
 
     layout = go.Layout(
-        title=f'Point Cloud with Radius {radius:.2f}',
+        title=dict(
+            text=f'Point Cloud with Radius {radius:.2f}',
+            x=0.85,        # Move title to right side
+            xanchor='left' # Align the start of the title at x=0.85
+        ),
         xaxis=dict(scaleanchor='y', scaleratio=1, range=[-2, 2]),
         yaxis=dict(range=[-2, 2]),
         height=500,
         width=500,
         hovermode='closest',
-        showlegend=False  
+        showlegend=False
     )
 
     fig = go.Figure(data=[points_trace] + circles, layout=layout)
@@ -74,7 +77,7 @@ def create_persistence_diagram_figure(radius):
         height=500,
         width=500,
         hovermode='closest',
-        showlegend=False  
+        showlegend=False
     )
 
     fig = go.Figure(data=[diag_trace, diag_line], layout=layout)
@@ -87,7 +90,7 @@ app.layout = html.Div([
         min=0,
         max=0.8,
         step=0.02,
-        value=0,
+        value=0,  # Starts at 0 every time page loads
         marks={i/10: f'{i/10:.1f}' for i in range(0, 9)},
         tooltip={"placement": "bottom", "always_visible": True},
     ),
@@ -111,3 +114,4 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 server = app.server
+
