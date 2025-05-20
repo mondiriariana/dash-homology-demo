@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: persistent-homology-demo
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:server
+    autoDeploy: true
